@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "messages": {
+        "$i18n": "locales.yml"
+    },
+    "title": {
+        "$ref": "#/messages/deploy.title"
+    },
+    "description": {
+        "$ref": "#/messages/deploy.description"
+    },
+    "longDescription": {
+        "$ref": "#/messages/deploy.longDescription"
+    },
+    "type": "object",
+    "properties": {
+        "prod-region": {
+            "description": "Bluemix region",
+            "type": "string"
+        },
+        "prod-organization": {
+            "description": "Bluemix organization",
+            "type": "string"
+        },
+        "prod-space": {
+            "description": "Bluemix Test space",
+            "type": "string"
+        },
+        "prod-app-name": {
+            "description": {
+                "$ref": "#/messages/deploy.appDescription"
+            },
+            "type": "string",
+            "pattern": "\\S"
+        }
+    },
+    "required": [
+        "prod-region",
+        "prod-organization",
+        "prod-space",
+        "prod-app-name"
+    ],
+    "form": [
+        {
+            "type": "validator",
+            "url": "/devops/setup/bm-helper/helper.html"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.appName"
+            },
+            "key": "prod-app-name"
+        },
+        {
+            "type": "select",
+            "key": "prod-region"
+        },
+        {
+            "type": "select",
+            "key": "prod-organization"
+        },
+        {
+            "type": "select",
+            "key": "prod-space",
+            "readonly": false
+        }
+    ]
+}

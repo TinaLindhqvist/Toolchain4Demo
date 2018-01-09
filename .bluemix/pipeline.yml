@@ -1,0 +1,63 @@
+---
+stages:
+- name: BUILD
+  inputs:
+  - type: git
+    branch: master
+    service: ${SAMPLE_REPO}
+  triggers:
+  - type: commit
+  jobs:
+  - name: Build
+    type: builder
+- name: DEPLOY
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build
+  triggers:
+  - type: stage
+  properties:
+  - name: CF_APP_NAME
+    value: undefined
+    type: text
+  - name: APP_URL
+    value: undefined
+    type: text
+  jobs:
+  - name: Deploy
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME}
+    script: |
+      #!/bin/bash
+      # Push app
+      cf push $CF_APP
+- name: TEST
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build
+  properties:
+  - name: APP_URL
+    value: ${APP_URL}
+    type: text
+  triggers:
+  - type: stage
+  jobs:
+  - name: SauceLabsTest
+    type: tester
+    enable_tests: true
+    extension_id: ibm.devops.services.pipeline.saucelabs
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+    DL_ASSETS: true
+    USER_ID: ${SAUCE_USERNAME}
+    ACCESS: ${SAUCE_KEY}
+    SELECT_CMD: custom
+    COMMAND: "#!/bin/bash \nexport PATH=/opt/IBM/node-v4.2/bin:$PATH \nnpm install \nnpm install selenium-webdriver@2.53.3 \nnpm install saucelabs \nnode tests/AppTest.js"
