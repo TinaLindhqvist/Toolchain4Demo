@@ -1,7 +1,7 @@
 ---
 template.name: "Toolchain Template to setup a Test App"
 template.description: "Toolchain template to setup Continuous Delivery and Test of an App"
-template.gettingStarted: "A Toolchain for a Test App with multiple useful integrations. Enjoy!"
+template.gettingStarted: "A Toolchain with many useful integrations. Enjoy!"
 deploy.title: "Sample Deploy Stage"
 deploy.description: "sample toolchain"
 deploy.longDescription: "The Delivery Pipeline automates continuous deployment."
