@@ -51,7 +51,7 @@ services:
           SAUCE_USERNAME: '{{services.saucelabs.parameters.username}}'
           SAUCE_KEY: '{{services.saucelabs.parameters.key}}'
           APP_URL: 'https://{{form.pipeline.parameters.prod-app-name}}.mybluemix.net'
-        execute: true
+        execute: false
   #Web IDE
   webide:
     service_id: orion
