@@ -26,9 +26,9 @@ services:
   sample-repo:
     service_id: githubpublic
     parameters:
-      repo_name: '{{toolchain.name}}'
-      repo_url: 'https://github.com/TinaLindhqvist/theTestAPP'
-      type: clone
+      repo_name:
+      repo_url: 
+      type: 
       has_issues: true
       enable_traceability: true
   #Pipeline
@@ -64,30 +64,9 @@ services:
     parameters:
       username: ''
       key: ''
-  #Trello
-  othertool-Trello:
-    service_id: customtool
-    parameters:
-      name: 'Trello'
-      description: 'TC setup information'
-      type: 'Trello'
-      lifecyclePhase: 'THINK'
-      imageUrl: 'https://atesttool.mybluemix.net/trello.png'
-      documentationUrl: 'https://tech.trello.com/'
-      dashboard_url: 'https://trello.com/b/vYfDPh37/tcsetup'
   #Availability Monitoring
   #apm:
     #service_id: apm
-  othertool-selenium:
-    service_id: customtool
-    parameters:
-      name: 'Selenium Home page'
-      description: 'Selenium Home page'
-      type: 'Selenium Home page'
-      lifecyclePhase: 'LEARN'
-      imageUrl: 'http://www.seleniumhq.org/images/selenium-logo.png'
-      documentationUrl: 
-      dashboard_url: 'http://www.seleniumhq.org/'
 form:
   pipeline:
     parameters:
