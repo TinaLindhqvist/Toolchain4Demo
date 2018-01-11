@@ -13,9 +13,9 @@ template:
     - sample-repo
   info:
     git url: >-
-      [https://github.com/TinaLindhqvist/minimal-toolchain](https://github.com/TinaLindhqvist/minimal-toolchain)
+      [https://github.com/TinaLindhqvist/Toolchain4Demo](https://github.com/TinaLindhqvist/Toolchain4Demo)
     git branch: >-
-      [master](https://github.com/TinaLindhqvist/minimal-toolchain/tree/master)
+      [master](https://github.com/TinaLindhqvist/Toolchain4Demo/tree/master)
 toolchain:
   name: 'theTestAPP-{{timestamp}}'
   template:
@@ -67,6 +67,17 @@ services:
   #Availability Monitoring
   #apm:
     #service_id: apm
+  #Trello
+  othertool-Trello:
+    service_id: customtool
+    parameters:
+      name: 'Trello'
+      description: 'Ideas IBM Cloud Features'
+      type: 'Trello'
+      lifecyclePhase: 'THINK'
+      imageUrl: 'https://atesttool.mybluemix.net/trello.png'
+      documentationUrl: 'https://tech.trello.com/'
+      dashboard_url: 'https://trello.com/b/ab1IqQoU/ibm-cloud-features'
 form:
   pipeline:
     parameters:
