@@ -19,7 +19,7 @@ template:
     git branch: >-
       [master](https://github.com/TinaLindhqvist/Toolchain4Demo/tree/master)
 toolchain:
-  name: 'theTestAPP-{{timestamp}}'
+  name: 'aFeatureApp-{{timestamp}}'
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
@@ -30,7 +30,7 @@ services:
     parameters:
       repo_name:
       repo_url: 
-      type: link
+      type: existing
       has_issues: true
       enable_traceability: true
   #Pipeline
