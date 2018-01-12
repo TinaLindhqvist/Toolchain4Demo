@@ -11,6 +11,8 @@ template:
   required:
     - sample-build
     - sample-repo
+    - saucelabs
+    - slack
   info:
     git url: >-
       [https://github.com/TinaLindhqvist/Toolchain4Demo](https://github.com/TinaLindhqvist/Toolchain4Demo)
