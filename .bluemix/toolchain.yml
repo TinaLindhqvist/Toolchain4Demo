@@ -30,7 +30,7 @@ services:
     parameters:
       repo_name:
       repo_url: 
-      type: existing
+      type: link
       has_issues: true
       enable_traceability: true
   #Pipeline
